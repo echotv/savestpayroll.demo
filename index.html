@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAVEST-Payroll — Demo Slides</title>
+<link rel="icon" href="img/brand/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-shell">
+
+  <!-- ══════════════════════════ TOPBAR ══════════════════════════ -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img src="img/brand/logo.svg" alt="SAVEST-Payroll logo">
+      <div class="wordmark">SAVEST-PAY<small>Demo Deck</small></div>
+    </div>
+    <div class="topbar-deck-title">Product Walkthrough — 2026</div>
+    <div class="topbar-spacer"></div>
+    <div class="kbd-hint">
+      <kbd>&larr;</kbd><kbd>&rarr;</kbd> navigate &nbsp;&middot;&nbsp; <kbd>F</kbd> present
+    </div>
+    <span class="topbar-counter" id="topbarCounter"><b>1</b> / 15</span>
+    <button class="btn btn-ghost" id="printBtn" title="Print / Export to PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span class="btn-text">Export</span>
+    </button>
+    <button class="btn btn-primary btn-compact" id="presentBtn" title="Present (F)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span class="btn-label">Present</span>
+    </button>
+  </header>
+
+  <!-- ══════════════════════════ WORKSPACE ═══════════════════════ -->
+  <div class="workspace">
+
+    <aside class="sidebar" id="sidebar"><!-- thumbnails injected by js/app.js --></aside>
+
+    <div class="stage-wrap" id="stageWrap">
+      <div class="stage" id="stage">
+        <div class="slide-track" id="slideTrack">
+
+          <!-- ═══════════════════════════════════════════════════════
+               01 — COVER
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide slide-cover" data-theme="dark">
+            <div class="blob blob-a"></div>
+            <div class="blob blob-b"></div>
+            <div class="dot-grid" style="top:56px; right:64px;"></div>
+            <div class="ring" style="width:520px; height:520px; top:120px; left:-120px;"></div>
+
+            <div class="cover-stack">
+              <div class="cover-logo-row">
+                <img src="img/brand/logo.svg" alt="">
+                <div class="wm">SAVEST-PAY<small>Payroll Management System</small></div>
+              </div>
+              <div class="kicker"><span class="dot"></span>Product Demo</div>
+              <h1 class="slide-title">Payroll, <span class="accent">computed</span> —<br>not guessed.</h1>
+              <p class="slide-subtitle">A complete payroll engine for multi-branch teams — attendance-driven, government-compliant, and signed off through a five-step chain of accountability.</p>
+              <div class="meta-strip">
+                <div class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  payroll.savest.cloud
+                </div>
+                <div class="divider"></div>
+                <div class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Product Walkthrough &middot; 2026
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               02 — AGENDA
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="citrus">
+            <div class="blob blob-a"></div>
+            <div class="kicker"><span class="dot"></span>Agenda</div>
+            <h2 class="slide-title">What we'll walk through</h2>
+            <p class="slide-subtitle">Six core modules — each scoped to the branches and privileges of the account using them.</p>
+
+            <div class="card-grid cols-3" style="margin-top:38px;">
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <b>Dashboard</b><span>Live headcount, cash-flow run rate, and a 6-month cost trend.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <b>Payroll Dates</b><span>Define every cutoff period — everything else keys off it.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <b>Timekeeping</b><span>Holidays, suspensions, travel, visits, and the attendance feed.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <b>Payroll</b><span>Earning/deduction types, the sheet generator, and payroll reports.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                <b>Gov't Contributions</b><span>Year-versioned SSS, Pag-IBIG, PhilHealth, and Tax brackets.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                <b>System Settings</b><span>User accounts, 62 privileges across 6 groups, and system logs.</span>
+              </div>
+            </div>
+            <p style="margin-top:22px; font-size:13px; color:var(--ink-soft); max-width:760px;">Plus: a 5-step approval chain, and live data flowing in from <b>Savest-HR</b>, <b>Savest-Team</b>, and <b>Savest-DTR</b> — covered at the end.</p>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">02 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               03 — THE SOLUTION
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="mint">
+            <div class="blob blob-a"></div>
+            <div class="kicker"><span class="dot"></span>Introducing</div>
+            <h2 class="slide-title">Payroll that computes itself<br>— and <span class="accent">proves</span> its work</h2>
+            <p class="slide-subtitle">Savest-Payroll turns attendance, schedules, and government brackets into a fully computed, five-step-approved payroll run — with every figure traceable back to its source.</p>
+
+            <div class="stat-row" style="margin-top:40px;">
+              <div class="stat-tile"><div class="num">6</div><div class="lbl">Core modules</div></div>
+              <div class="stat-tile"><div class="num">62</div><div class="lbl">Granular privileges</div></div>
+              <div class="stat-tile"><div class="num">5</div><div class="lbl">Step approval chain</div></div>
+              <div class="stat-tile"><div class="num">100%</div><div class="lbl">Auto-computed pay</div></div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">03 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               04 — SECURE SIGN-IN
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="sky">
+            <div class="blob blob-c"></div>
+            <div class="kicker"><span class="dot"></span>Getting Started</div>
+            <h2 class="slide-title">One login, scoped to your role</h2>
+            <div class="slide-body" style="margin-top:14px;">
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></div>
+                  <div class="feature-text"><b>Username &amp; password, or Google</b><span>The same one-click Google sign-in used across the Savest family of apps.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="feature-text"><b>Role- and branch-scoped</b><span>Every account's User Type decides exactly which branches and modules it can reach.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="feature-text"><b>Locked down by default</b><span>No privileges assigned, no access — the same rule enforced across every Savest system.</span></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="device-stack solo">
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/login</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/login.png" alt="Savest-Payroll sign-in page">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">04 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               05 — DASHBOARD
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="grape">
+            <div class="blob blob-a"></div>
+            <div class="kicker"><span class="dot"></span>Module 01 &middot; Dashboard</div>
+            <h2 class="slide-title">The cash-flow picture, the<br>moment you sign in</h2>
+            <div class="slide-body reverse" style="margin-top:14px;">
+              <div class="col">
+                <div class="device-stack solo">
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/system/dashboard</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/dashboard.png" alt="Savest-Payroll dashboard">
+                  </div>
+                </div>
+              </div>
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="feature-text"><b>Total Active Headcount</b><span>A live count of every employee currently on payroll.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11H4"/><path d="M20 7H4"/><path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7"/></svg></div>
+                  <div class="feature-text"><b>Cash-flow at a glance</b><span>Gross Run Rate, Net Salary Disbursed, and Withholdings &amp; Deductions for the month, updated live.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                  <div class="feature-text"><b>A 6-month cost trend</b><span>Payroll cost history, plus daily and average early-arrival insights.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">05 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               06 — PAYROLL DATES
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="citrus">
+            <div class="blob blob-b"></div>
+            <div class="kicker"><span class="dot"></span>Module 02 &middot; Payroll Dates</div>
+            <h2 class="slide-title">One cutoff, one source of truth</h2>
+            <div class="slide-body" style="margin-top:10px;">
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                  <div class="feature-text"><b>Everything keys off a period</b><span>Attendance, the payroll sheet, and reports all belong to the Payroll Date they fall in.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+                  <div class="feature-text"><b>Add, edit, or remove periods</b><span>Define the start and end of each cutoff in seconds.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div class="feature-text"><b>Finished periods tidy themselves up</b><span>A period quietly drops off the active list once every branch has been fully approved for it.</span></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="device-stack tilt">
+                  <div class="device-frame is-back">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/payroll-dates</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/payroll-dates-add-modal.png" alt="Add payroll date dialog">
+                  </div>
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/payroll-dates</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/payroll-dates.png" alt="Payroll dates list">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">06 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               07 — TIMEKEEPING
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="mint">
+            <div class="blob blob-a"></div>
+            <div class="kicker"><span class="dot"></span>Module 03 &middot; Timekeeping</div>
+            <h2 class="slide-title">Attendance, holidays, and leave<br>— all in one place</h2>
+            <div class="slide-body reverse" style="margin-top:14px;">
+              <div class="col">
+                <div class="device-stack tilt">
+                  <div class="device-frame is-back">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/daily-attendance</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/daily-attendance.png" alt="Daily attendance view">
+                  </div>
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/holidays</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/holidays.png" alt="Holidays and non-working days">
+                  </div>
+                </div>
+              </div>
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                  <div class="feature-text"><b>Holidays, suspensions, travel &amp; visits</b><span>Fully managed here, the same way they feed straight into payroll computation.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div class="feature-text"><b>Daily Attendance &amp; Time Sheet</b><span>Consolidates every biometric punch into a per-employee, per-day view before the cutoff closes.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                  <div class="feature-text"><b>Approved Overtime, Undertime &amp; Leave</b><span>Read-only mirrors — approved in Savest-Team, trusted here exactly as filed.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">07 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               08 — PAYROLL SHEET GENERATOR
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="coral">
+            <div class="blob blob-b"></div>
+            <div class="kicker"><span class="dot"></span>Module 04 &middot; Payroll Sheet Generator</div>
+            <h2 class="slide-title">Every figure, computed —<br>never re-typed</h2>
+            <div class="slide-body" style="margin-top:10px;">
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="feature-text"><b>One row, one employee, fully computed</b><span>Schedule, attendance, approved OT/UT, leave, holidays, and suspensions all resolve into Gross and Net Pay automatically.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+                  <div class="feature-text"><b>Editable, but never silent</b><span>Override any cell, row, or column — then reset it back to the computed value whenever needed.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11H4"/><path d="M20 7H4"/><path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7"/></svg></div>
+                  <div class="feature-text"><b>Built on the current salary grade</b><span>Monthly, daily, and hourly rates pull straight from each employee's active Salary Grade Movement.</span></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="device-stack solo">
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/payroll</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/payroll.png" alt="Payroll sheet generator">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">08 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               09 — EARNING & DEDUCTION TYPES
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="sky">
+            <div class="blob blob-c"></div>
+            <div class="kicker"><span class="dot"></span>Module 04 &middot; Earning &amp; Deduction Types</div>
+            <h2 class="slide-title">Define the columns once,<br>use them everywhere</h2>
+            <div class="slide-body reverse" style="margin-top:14px;">
+              <div class="col">
+                <div class="device-stack tilt">
+                  <div class="device-frame is-back">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/earning-types</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/earning-types-add-modal.png" alt="Add earning type dialog">
+                  </div>
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/earning-types</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/earning-types.png" alt="Earning types list">
+                  </div>
+                </div>
+              </div>
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="feature-text"><b>Unlimited custom types</b><span>Define exactly which earnings and deductions your organization pays and withholds.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div class="feature-text"><b>Ordered, toggleable, restorable</b><span>Set display order, flip visibility inline, or soft-delete and restore a type without losing history.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="feature-text"><b>Feeds the Payroll Sheet directly</b><span>Every active type becomes its own column on the sheet — no code changes required.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">09 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               10 — GOVERNMENT-MANDATED CONTRIBUTIONS
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="grape">
+            <div class="blob blob-a"></div>
+            <div class="kicker"><span class="dot"></span>Module 05 &middot; Gov't Contributions</div>
+            <h2 class="slide-title">A law change should update<br>a bracket, not the code</h2>
+            <div class="slide-body" style="margin-top:10px;">
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="feature-text"><b>SSS, Pag-IBIG, PhilHealth &amp; Tax</b><span>Year-versioned bracket tables, so each contribution's history is kept, not overwritten.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                  <div class="feature-text"><b>One control panel, one active range</b><span>Only one open bracket period per contribution type — close the current one before opening the next.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="feature-text"><b>No overlapping ranges, ever</b><span>The same date-range validation used throughout Savest-Payroll keeps contribution history clean.</span></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="device-stack tilt">
+                  <div class="device-frame is-back">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/contributions/sss/brackets</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/sss-brackets.png" alt="SSS salary brackets">
+                  </div>
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/payroll/govt-contribution</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/govt-contribution.png" alt="Government contribution control panel">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">10 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               11 — 5-STEP APPROVAL WORKFLOW
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="citrus">
+            <div class="blob blob-b"></div>
+            <div class="kicker"><span class="dot"></span>Module 04 &middot; Payroll Processing</div>
+            <h2 class="slide-title">Prepared, checked, and approved<br>— never skipped</h2>
+            <p class="slide-subtitle">Each payroll period and branch moves through five sequential sign-offs. Skipping ahead isn't possible, and stepping back always leaves a reason.</p>
+
+            <div class="timeline steps-5" style="margin-top:34px;">
+              <div class="tl-node">
+                <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+                <b>Prepare</b><span>The initial computed sheet is assembled for a branch and period.</span>
+                <div class="tl-chip">PREPARE PAYROLL</div>
+              </div>
+              <div class="tl-node">
+                <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <b>Check</b><span>A second reviewer verifies every computed figure.</span>
+                <div class="tl-chip">CHECK PAYROLL</div>
+              </div>
+              <div class="tl-node">
+                <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                <b>Note</b><span>Noted by the next level, with comments attached if needed.</span>
+                <div class="tl-chip">NOTE PAYROLL</div>
+              </div>
+              <div class="tl-node">
+                <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <b>Verify</b><span>A final check against attendance and contribution records.</span>
+                <div class="tl-chip">VERIFY PAYROLL</div>
+              </div>
+              <div class="tl-node">
+                <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <b>Approve</b><span>The period is locked in — final reports can now be generated.</span>
+                <div class="tl-chip">APPROVE PAYROLL</div>
+              </div>
+            </div>
+
+            <div class="mod-card" style="margin-top:28px; max-width:760px; flex-direction:row; align-items:center; gap:16px;">
+              <div class="ico" style="flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+              <span style="font-size:14px; color:var(--ink-soft); line-height:1.5;"><b style="color:var(--ink);">Revert, with a reason.</b> Any step can be sent back, but only with a required comment explaining why — logged alongside the approval trail.</span>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">11 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               12 — PAYROLL REPORT
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="mint">
+            <div class="blob blob-a"></div>
+            <div class="kicker"><span class="dot"></span>Module 04 &middot; Payroll Report</div>
+            <h2 class="slide-title">One query, every number<br>that matters</h2>
+            <div class="slide-body reverse" style="margin-top:14px;">
+              <div class="col">
+                <div class="device-stack tilt">
+                  <div class="device-frame is-back">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/payroll/reports/12/BR01</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/payroll-report-detail.png" alt="Payroll report detail">
+                  </div>
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/payroll/reports</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/payroll-report.png" alt="Payroll report summary">
+                  </div>
+                </div>
+              </div>
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="feature-text"><b>Every approved period, aggregated</b><span>Headcount, gross pay, deductions, and net pay per branch, in one query.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                  <div class="feature-text"><b>Drill into any branch &amp; period</b><span>Open the full line-item detail behind any approved total.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+                  <div class="feature-text"><b>Export straight to Excel</b><span>Both the summary and the line-item detail, formatted and ready to file.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">12 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               13 — ROLES & PERMISSIONS
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="sky">
+            <div class="blob blob-c"></div>
+            <div class="kicker"><span class="dot"></span>Module 06 &middot; System Settings</div>
+            <h2 class="slide-title">Access, scoped down to<br>the checkbox</h2>
+            <div class="slide-body reverse" style="margin-top:14px;">
+              <div class="col">
+                <div class="device-stack solo">
+                  <div class="device-frame is-front">
+                    <div class="device-chrome"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+                      <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>payroll.savest.cloud/admin/user-types</div>
+                    </div>
+                    <img class="device-shot" src="img/screens/user-types.png" alt="User types and permissions">
+                  </div>
+                </div>
+              </div>
+              <div class="col feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></div>
+                  <div class="feature-text"><b>6 permission groups</b><span>Timekeeping, Payroll Dates, Earning &amp; Deduction Types, Payroll Processing, Gov't Contributions, and User &amp; System.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="feature-text"><b>62 individual privileges</b><span>Right down to who may Prepare versus who may Approve a payroll run.</span></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div class="feature-text"><b>Select All, per group</b><span>Grant a whole group's access in one click, or hand-pick exactly what a role needs.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">13 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               14 — CONNECTED SYSTEMS
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="grape">
+            <div class="blob blob-a"></div>
+            <div class="blob blob-c"></div>
+            <div class="kicker"><span class="dot"></span>Beyond The App</div>
+            <h2 class="slide-title">Part of one Savest family,<br>not a silo</h2>
+            <p class="slide-subtitle">Savest-Payroll doesn't collect employee data twice — it reads from the systems that already own it.</p>
+
+            <div class="card-grid" style="margin-top:34px;">
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <b>Savest-HR</b><span>Employee records, branches, positions, salary grades, and weekly schedules flow in as the single source of truth.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <b>Savest-Team</b><span>Approved Overtime, Undertime, and Leave requests appear here exactly as filed — Payroll never edits them.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                <b>Savest-DTR</b><span>Biometric attendance taps, keyed by device ID, land directly in the attendance feed behind every computed pay run.</span>
+              </div>
+              <div class="mod-card">
+                <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg></div>
+                <b>Google Workspace</b><span>The same Google sign-in used across Savest-HR, for one consistent login experience.</span>
+              </div>
+            </div>
+            <div class="slide-footer"><span class="fbrand"><img src="img/brand/logo.svg" alt="">SAVEST-PAYROLL</span><span class="fpage">14 / 15</span></div>
+          </section>
+
+          <!-- ═══════════════════════════════════════════════════════
+               15 — CLOSING
+               ═══════════════════════════════════════════════════════ -->
+          <section class="slide" data-theme="dark">
+            <div class="blob blob-a"></div>
+            <div class="blob blob-b"></div>
+            <div class="ring" style="width:420px; height:420px; bottom:-140px; right:40px;"></div>
+
+            <div class="cover-stack">
+              <div class="cover-logo-row">
+                <img src="img/brand/logo.svg" alt="">
+                <div class="wm">SAVEST-PAY<small>Payroll Management System</small></div>
+              </div>
+              <div class="kicker"><span class="dot"></span>Let's Talk</div>
+              <h1 class="slide-title" style="font-size:72px;">Thank you.<br>Questions?</h1>
+              <p class="slide-subtitle">Let's walk through a real cutoff together — and see exactly how the numbers add up.</p>
+
+              <a class="closing-cta" href="https://payroll.savest.cloud/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                payroll.savest.cloud
+              </a>
+            </div>
+          </section>
+
+        </div><!-- /.slide-track -->
+      </div><!-- /.stage -->
+
+      <button class="stage-nav prev" id="prevBtn" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="stage-nav next" id="nextBtn" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="stage-dots" id="stageDots"></div>
+    </div><!-- /.stage-wrap -->
+  </div><!-- /.workspace -->
+
+  <div class="present-exit-hint" id="presentExitHint">Press <kbd>Esc</kbd> to exit &middot; <kbd>&larr;</kbd><kbd>&rarr;</kbd> to navigate</div>
+
+  <div class="zoom-controls" id="zoomControls">
+    <button type="button" id="zoomOutBtn" aria-label="Zoom out" title="Zoom out">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    </button>
+    <span class="zoom-pct" id="zoomPct">100%</span>
+    <button type="button" id="zoomInBtn" aria-label="Zoom in" title="Zoom in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    </button>
+  </div>
+</div><!-- /#app-shell -->
+
+<script src="js/app.js"></script>
+</body>
+</html>

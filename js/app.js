@@ -1,9 +1,15 @@
 /* ==========================================================================
    SAVEST-HRIS Demo Slides — App Engine
    Plain script (no modules, no deps) so the deck runs by double-clicking
-   index.html — no server required. Builds the thumbnail rail, scales the
-   canvas to fit the window, and drives navigation + fullscreen Present mode
-   (with manual zoom controls while presenting).
+   index.html — no server required. Builds the thumbnail rail and drives
+   navigation + fullscreen Present mode with a genuinely responsive,
+   zoomable canvas.
+
+   Sizing itself is no longer JS's job: .stage and its content use CSS
+   container query units (see css/style.css — .stage's `width: min(...)`
+   formula and .slide's `--su`), so the whole canvas reacts live to window
+   resizes, sidebar show/hide, and the zoom level below with zero JS
+   recalculation needed.
    ========================================================================== */
 (function () {
   'use strict';
@@ -23,15 +29,15 @@
   var presentBtn = document.getElementById('presentBtn');
   var printBtn = document.getElementById('printBtn');
   var exitHint = document.getElementById('presentExitHint');
+  var zoomControls = document.getElementById('zoomControls');
   var zoomInBtn = document.getElementById('zoomInBtn');
   var zoomOutBtn = document.getElementById('zoomOutBtn');
   var zoomPct = document.getElementById('zoomPct');
 
-  var SLIDE_W = 1280;
-  var SLIDE_H = 720;
-
   /* ---------------------------------------------------------------- */
-  /* Build thumbnail rail — live scaled clones of each slide           */
+  /* Build thumbnail rail — live clones of each slide, re-scaled only   */
+  /* by virtue of .thumb-frame establishing its own (much smaller)      */
+  /* container-query context; no transform math needed here at all.    */
   /* ---------------------------------------------------------------- */
   function buildThumbnails() {
     slides.forEach(function (slide, i) {
@@ -49,11 +55,11 @@
       frame.className = 'thumb-frame';
 
       var clone = slide.cloneNode(true);
-      clone.className = 'thumb-slide-clone';
+      // Keep the original "slide" class (theme tokens, --su, base layout
+      // all key off it) and layer the thumbnail-specific positioning on
+      // top via the more specific ".thumb-frame .thumb-slide-clone" rule.
+      clone.className += ' thumb-slide-clone';
       clone.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
-
-      var scale = 164 / SLIDE_W; // matches .thumb-frame width in CSS
-      clone.style.transform = 'scale(' + scale + ')';
 
       frame.appendChild(clone);
       thumb.appendChild(idx);
@@ -78,10 +84,16 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Manual zoom (presentation mode only — resets to fit-to-screen      */
-  /* every time Present mode is entered)                                */
+  /* Manual zoom (presentation mode only) — a single CSS custom         */
+  /* property feeds .stage's width formula directly, so the content's   */
+  /* own container-query-based sizing reacts automatically. Resets to   */
+  /* 100% every time Present mode is (re-)entered.                      */
   /* ---------------------------------------------------------------- */
-  var ZOOM_MIN = 0.5, ZOOM_MAX = 2, ZOOM_STEP = 0.1;
+  // .stage itself never resizes with zoom (see css/style.css) — zoom is
+  // real browser `zoom` applied to the active .slide, so it behaves like
+  // zooming a responsive webpage: width can never overflow, and taller
+  // content just needs more (locally scrollable) height.
+  var ZOOM_MIN = 0.7, ZOOM_MAX = 1.6, ZOOM_STEP = 0.1;
   var zoomLevel = 1;
 
   function updateZoomUI() {
@@ -92,22 +104,10 @@
   function setZoom(z) {
     zoomLevel = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, z));
     updateZoomUI();
-    fitStage();
+    stage.style.setProperty('--zoom', zoomLevel);
   }
   zoomInBtn.addEventListener('click', function () { setZoom(zoomLevel + ZOOM_STEP); });
   zoomOutBtn.addEventListener('click', function () { setZoom(zoomLevel - ZOOM_STEP); });
-
-  /* ---------------------------------------------------------------- */
-  /* Scale the fixed-resolution stage to fit the available space       */
-  /* ---------------------------------------------------------------- */
-  function fitStage() {
-    var presenting = document.body.classList.contains('is-presenting');
-    var padding = presenting ? 0 : (stageWrap.clientWidth < 700 ? 16 : 48);
-    var availW = stageWrap.clientWidth - padding * 2;
-    var availH = stageWrap.clientHeight - padding * 2;
-    var scale = Math.min(availW / SLIDE_W, availH / SLIDE_H) * (presenting ? zoomLevel : 1);
-    stage.style.transform = 'scale(' + scale + ')';
-  }
 
   /* ---------------------------------------------------------------- */
   /* Navigation                                                         */
@@ -182,20 +182,50 @@
   document.addEventListener('fullscreenchange', function () {
     var presenting = !!document.fullscreenElement;
     document.body.classList.toggle('is-presenting', presenting);
-    zoomLevel = 1; // always re-enter at fit-to-screen
-    updateZoomUI();
-    fitStage();
-    if (presenting) flashExitHint();
+    setZoom(1); // always re-enter at 100%
+    if (presenting) showChrome();
   });
 
+  /* ---------------------------------------------------------------- */
+  /* Presentation chrome (exit hint, nav arrows, zoom controls) —       */
+  /* hidden by default while presenting, revealed on mouse activity     */
+  /* and auto-hidden again after a short idle period (video-player-     */
+  /* style). Hovering the controls themselves pauses the hide timer so  */
+  /* they don't vanish mid-click.                                       */
+  /* ---------------------------------------------------------------- */
+  var chromeEls = [exitHint, prevBtn, nextBtn, zoomControls];
   var hintTimer = null;
-  function flashExitHint() {
-    exitHint.classList.add('is-visible');
+  var hoveringChrome = false;
+  function showChrome() {
+    chromeEls.forEach(function (el) { el.classList.add('is-visible'); });
+    scheduleHide();
+  }
+  function scheduleHide() {
     clearTimeout(hintTimer);
-    hintTimer = setTimeout(function () { exitHint.classList.remove('is-visible'); }, 2600);
+    hintTimer = setTimeout(function () {
+      // the pointer bubbling a mousemove through a chrome element keeps
+      // rescheduling this timer on every move, but not while it sits
+      // still mid-hover — so the timer still needs to check, at the
+      // moment it actually fires, whether the pointer is still resting
+      // on one of these controls before hiding them out from under it.
+      if (!hoveringChrome) hideChrome();
+    }, 2600);
+  }
+  function hideChrome() {
+    chromeEls.forEach(function (el) { el.classList.remove('is-visible'); });
   }
   stageWrap.addEventListener('mousemove', function () {
-    if (document.body.classList.contains('is-presenting')) flashExitHint();
+    if (document.body.classList.contains('is-presenting')) showChrome();
+  });
+  chromeEls.forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      hoveringChrome = true;
+      if (document.body.classList.contains('is-presenting')) clearTimeout(hintTimer);
+    });
+    el.addEventListener('mouseleave', function () {
+      hoveringChrome = false;
+      if (document.body.classList.contains('is-presenting')) scheduleHide();
+    });
   });
 
   /* ---------------------------------------------------------------- */
@@ -210,6 +240,4 @@
   buildDots();
   render();
   updateZoomUI();
-  fitStage();
-  window.addEventListener('resize', fitStage);
 })();

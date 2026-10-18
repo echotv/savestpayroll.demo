@@ -652,6 +652,22 @@ body.is-presenting .stage-nav.is-visible:not(:disabled):hover { opacity: 1; }
 .mod-card b { font-family: var(--font-head); font-size: calc(15 * var(--su)); font-weight: 700; }
 .mod-card span { font-size: calc(13 * var(--su)); line-height: 1.5; color: var(--ink-soft); }
 
+/* ── Callout note (payroll-flow dependency reminders) ─────────────── */
+.callout {
+  display: flex;
+  gap: calc(12 * var(--su));
+  align-items: flex-start;
+  margin-top: calc(24 * var(--su));
+  padding: calc(14 * var(--su)) calc(18 * var(--su));
+  border-radius: calc(14 * var(--su));
+  background: var(--chip-bg);
+  border: calc(1 * var(--su)) solid var(--chip-border);
+  border-left: calc(3 * var(--su)) solid var(--primary);
+}
+.callout svg { width: calc(18 * var(--su)); height: calc(18 * var(--su)); flex-shrink: 0; color: var(--primary); margin-top: calc(2 * var(--su)); }
+.callout p { font-size: calc(13.5 * var(--su)); line-height: 1.55; color: var(--ink); }
+.callout b { color: var(--primary); }
+
 /* ── Pill badge row ────────────────────────────────────────────────── */
 .pill-row { display: flex; flex-wrap: wrap; gap: calc(8 * var(--su)); }
 .pill {

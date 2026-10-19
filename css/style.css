@@ -452,22 +452,22 @@ body.is-presenting .stage-nav.is-visible:not(:disabled):hover { opacity: 1; }
 .kicker {
   display: inline-flex;
   align-items: center;
-  gap: calc(8 * var(--su));
+  gap: calc(11 * var(--su));
   align-self: flex-start;
   font-family: var(--font-body);
-  font-size: calc(12.5 * var(--su));
+  font-size: calc(20 * var(--su));
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--primary);
   background: var(--chip-bg);
   border: calc(1 * var(--su)) solid var(--chip-border);
-  padding: calc(7 * var(--su)) calc(14 * var(--su)) calc(7 * var(--su)) calc(10 * var(--su));
+  padding: calc(13 * var(--su)) calc(24 * var(--su)) calc(13 * var(--su)) calc(18 * var(--su));
   border-radius: calc(999 * var(--su));
   box-shadow: var(--shadow-chip);
-  margin-bottom: calc(22 * var(--su));
+  margin-bottom: calc(28 * var(--su));
 }
-.kicker .dot { width: calc(7 * var(--su)); height: calc(7 * var(--su)); border-radius: 50%; background: var(--primary); }
+.kicker .dot { width: calc(10 * var(--su)); height: calc(10 * var(--su)); border-radius: 50%; background: var(--primary); }
 
 .slide-title {
   font-family: var(--font-head);
